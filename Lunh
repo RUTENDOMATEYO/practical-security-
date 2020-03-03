@@ -1,0 +1,54 @@
+# practical-security-
+
+def creditcard():
+    creditnumber = input("Enter the credit card ")
+    lcnumber=list(creditnumber) #Converting String input to list
+
+    calculatenumber=[] #Array variable to store calculated value
+    u_num =0 #Interger verify number>10
+
+    check =0 #variable sum up all digits
+
+    if len(lcnumber) !=16:  #validate length
+        print("Not a valid credit card number")
+        quit()
+
+    else:
+        for i in range(len(lcnumber)):
+            if((i%2)==0): #for loop for even numbers
+                num=int((lcnumber[i]))*2 #Multiply number by 2
+
+                if(num>=10):
+                    u_num=num%10+1 #if num>10, do mod 10 which help split num
+
+                    calculatenumber.append(u_num)
+                else:
+                    calculatenumber.append(num)
+            else:
+                
+                calculatenumber.append(int(lcnumber[i]))
+
+    print("Given number.", lcnumber)
+    print("Converted list.", calculatenumber)
+    for n in range(len(calculatenumber)):
+        check=check+calculatenumber[n]
+    if(check%10 == 0):
+        print("valid credit card")
+        return("Valid credit card")
+    else:
+        print("Invalid credit card")
+        return("Invalid credit card")
+    
+creditcard()  
+
+# credit card 4137894711755904 = valid credit card
+# credit card 6499802450273568 = invalid credit card
+# credit card 8504172191273888 = valid credit card
+# credit card 0043668783485480 = invalid credit card
+  
+                
+        
+    
+    
+    
+    
